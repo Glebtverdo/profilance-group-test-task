@@ -13,7 +13,7 @@ export default function ModalNewNews(params: {showModal: boolean, toggleShowModa
 
   const createNews = () => {
     setIsLoading(true);
-    if(titleValue === "" || textValue === ""){
+    if(titleValue !== "" && textValue !== ""){
       const date = new Date();
       dispatch(addNews({name: titleValue, text: textValue, date: date.toDateString()}));
       toggleShowModal();
@@ -27,7 +27,7 @@ export default function ModalNewNews(params: {showModal: boolean, toggleShowModa
 
   return(
     <div className={"modal " + mainDivClasses}>
-      <div className="modal__background"></div>
+      <div className="modal__background" onClick={toggleShowModal}></div>
       <div className="modal__container">
         <p className="modal__text">Заголовок : </p>
         <input onChange={e => setTitleValue(e.target.value)} value={titleValue}

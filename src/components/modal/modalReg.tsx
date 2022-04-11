@@ -41,13 +41,13 @@ export default function ModalReg(params: {showModal: boolean, toggleShowModal: (
 
   return(
     <div className={"modal " + mainDivClasses}>
-      <div className="modal__background"></div>
+      <div className="modal__background" onClick={toggleShowModal}></div>
       <div className="modal__container">
         <p className="modal__text">Логин:</p>
         <input onChange={e => setLoginValue(e.target.value)} value={loginValue}
         disabled={isLoading}/>
         <p className="modal__text">Пароль:</p>
-        <input onChange={e => setPasswordValue(e.target.value)} value={passwordValue}
+        <input type="password" onChange={e => setPasswordValue(e.target.value)} value={passwordValue}
         disabled={isLoading}/>
         <button disabled={isLoading} onClick={makeAuth}>Вход</button>
       </div>
